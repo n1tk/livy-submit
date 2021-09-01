@@ -142,7 +142,7 @@ class LivyAPI:
         files: List[str] = None,
         jars: List[str] = None,
         proxyUser: str = None,
-        ClassName: str = None,
+        ClassName: str = None
     ) -> Batch:
         """
         Submit a batch job to the Livy server
