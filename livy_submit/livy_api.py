@@ -139,6 +139,10 @@ class LivyAPI:
         conf: dict = None,
         args: List[str] = None,
         pyFiles: List[str] = None,
+        files: List[str] = None,
+        jars: List[str] = None,
+        proxyUser: str = None,
+        ClassName: str = None,
     ) -> Batch:
         """
         Submit a batch job to the Livy server
@@ -211,7 +215,7 @@ class LivyAPI:
         # check for collision with existing batch name
         if name is not None:
             _, _, batches = self.all_info()
-            for num,batch in batches.items():
+            for num, batch in batches.items():
                 if (batch.name is not None) and (batch.name == name):
                     msg = f'''The batch name '{name}' is already in use by Livy Batch Job {batch.id}.
 You can either
